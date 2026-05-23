@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Sembrando Conciencia – Huerta solidaria en Merlo, Buenos Aires. Talleres gratuitos para aprender a cultivar en cualquier espacio."/>
+<meta property="og:title" content="Sembrando Conciencia – Huerta Solidaria"/>
+<meta property="og:description" content="Aprendé a plantar en tu balcón, ventana o rincón. Talleres gratuitos, comunidad real."/>
+<meta property="og:type" content="website"/>
+<title>Sembrando Conciencia – Huerta Solidaria</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,800;1,300;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --sand:       #f5ede0;
+  --sand2:      #ede2d0;
+  --sand3:      #e2d3bc;
+  --warm-white: #faf6f0;
+  --verde:      #3d7a4a;
+  --verde2:     #52a063;
+  --verde3:     #a8d4b0;
+  --verde-dark: #2a5535;
+  --tierra:     #b5622a;
+  --tierra2:    #d4824a;
+  --tierra3:    #f0c8a0;
+  --brown:      #6b4226;
+  --text:       #2c1f10;
+  --text2:      #5c4230;
+  --text3:      #8a6e58;
+  --white:      #ffffff;
+  --radius:     18px;
+  --radius-lg:  28px;
+  --shadow:     0 8px 40px rgba(44,31,16,0.10);
+  --shadow-lg:  0 20px 70px rgba(44,31,16,0.15);
+}
+
+html{scroll-behavior:smooth;font-size:16px}
+
+body{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  background:var(--warm-white);
+  color:var(--text);
+  overflow-x:hidden;
+  line-height:1.7;
+}
+
+::selection{background:var(--verde);color:#fff}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--sand)}
+::-webkit-scrollbar-thumb{background:var(--verde2);border-radius:3px}
+
+h1,h2,h3,h4{font-family:'Fraunces',serif;line-height:1.18}
+img{max-width:100%;display:block}
+
+/* ─── LANG SWITCHER ─── */
+.lang-bar{
+  background:var(--verde-dark);
+  display:flex;justify-content:flex-end;align-items:center;
+  padding:0.4rem 5%;gap:0.5rem;
+}
+.lang-btn{
+  background:transparent;border:1px solid rgba(255,255,255,0.25);
+  color:rgba(255,255,255,0.7);font-size:0.75rem;font-weight:600;
+  letter-spacing:0.08em;padding:0.25rem 0.75rem;border-radius:999px;
+  cursor:pointer;transition:all 0.2s;font-family:'Plus Jakarta Sans',sans-serif;
+}
+.lang-btn.active{background:rgba(255,255,255,0.15);color:#fff;border-color:rgba(255,255,255,0.5)}
+.lang-btn:hover{color:#fff;border-color:rgba(255,255,255,0.5)}
+
+/* ─── NAVBAR ─── */
+nav{
+  position:sticky;top:0;z-index:200;
+  background:rgba(250,246,240,0.92);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--sand3);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5%;height:68px;
+  transition:box-shadow 0.3s;
+}
+nav.scrolled{box-shadow:var(--shadow)}
+
+.nav-logo{
+  display:flex;align-items:center;gap:10px;
+  text-decoration:none;
+}
+.logo-mark{
+  width:40px;height:40px;border-radius:12px;
+  background:linear-gradient(135deg,var(--verde),var(--verde2));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;box-shadow:0 4px 12px rgba(61,122,74,0.3);
+  flex-shrink:0;
+}
+.logo-text{
+  font-family:'Fraunces',serif;font-size:1.15rem;
+  color:var(--verde-dark);font-weight:600;
+  line-height:1.2;
+}
+.logo-text small{
+  display:block;font-size:0.65rem;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:400;color:var(--text3);
+  letter-spacing:0.06em;text-transform:uppercase;
+}
+
+.nav-links{display:flex;list-style:none;gap:1.8rem;align-items:center}
+.nav-links a{
+  text-decoration:none;color:var(--text2);
+  font-size:0.88rem;font-weight:500;
+  transition:color 0.2s;white-space:nowrap;
+}
+.nav-links a:hover{color:var(--verde)}
+.nav-cta{
+  background:var(--tierra)!important;color:#fff!important;
+  padding:0.5rem 1.4rem;border-radius:999px;
+  font-weight:600!important;
+  box-shadow:0 4px 14px rgba(181,98,42,0.3);
+  transition:transform 0.2s,box-shadow 0.2s!important;
+}
+.nav-cta:hover{transform:translateY(-2px)!important;box-shadow:0 6px 20px rgba(181,98,42,0.4)!important}
+
+.hamburger{
+  display:none;flex-direction:column;gap:5px;
+  background:none;border:none;cursor:pointer;padding:6px;
+}
+.hamburger span{
+  width:24px;height:2px;background:var(--text);
+  border-radius:2px;transition:all 0.3s;display:block;
+}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* ─── MOBILE DRAWER ─── */
+.drawer{
+  position:fixed;top:0;right:-100%;bottom:0;width:80%;max-width:320px;
+  background:var(--warm-white);z-index:500;
+  box-shadow:-10px 0 40px rgba(0,0,0,0.15);
+  transition:right 0.35s cubic-bezier(.4,0,.2,1);
+  padding:5rem 2rem 2rem;
+  display:flex;flex-direction:column;gap:0.5rem;
+}
+.drawer.open{right:0}
+.drawer-close{
+  position:absolute;top:1.2rem;right:1.2rem;
+  background:var(--sand2);border:none;border-radius:50%;
+  width:38px;height:38px;font-size:1.2rem;cursor:pointer;
+}
+.drawer a{
+  display:block;padding:0.9rem 1rem;
+  border-radius:12px;text-decoration:none;
+  color:var(--text);font-weight:500;font-size:1rem;
+  transition:background 0.2s;
+}
+.drawer a:hover{background:var(--sand2)}
+.drawer .d-cta{
+  margin-top:1rem;background:var(--tierra);color:#fff;
+  text-align:center;font-weight:600;
+  box-shadow:0 4px 14px rgba(181,98,42,0.3);
+}
+.overlay{
+  position:fixed;inset:0;background:rgba(44,31,16,0.4);
+  z-index:400;opacity:0;pointer-events:none;transition:opacity 0.3s;
+}
+.overlay.show{opacity:1;pointer-events:all}
+
+/* ─── HERO ─── */
+.hero{
+  min-height:calc(100svh - 105px);
+  display:flex;align-items:center;
+  padding:4rem 5% 5rem;
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(ellipse 70% 80% at 5% 40%,rgba(61,122,74,0.07),transparent 60%),
+    radial-gradient(ellipse 50% 60% at 95% 70%,rgba(181,98,42,0.07),transparent 55%),
+    var(--warm-white);
+}
+
+/* patrón de puntos */
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(61,122,74,0.08) 1.5px,transparent 1.5px);
+  background-size:32px 32px;pointer-events:none;
+}
+
+.hero-inner{
+  max-width:1200px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:4rem;align-items:center;
+}
+
+.hero-content{position:relative}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  background:rgba(61,122,74,0.1);
+  border:1px solid rgba(61,122,74,0.2);
+  color:var(--verde-dark);
+  font-size:0.78rem;font-weight:600;
+  letter-spacing:0.1em;text-transform:uppercase;
+  padding:0.4rem 1rem;border-radius:999px;
+  margin-bottom:1.8rem;
+}
+.badge-pulse{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--verde2);
+  box-shadow:0 0 0 0 rgba(82,160,99,0.5);
+  animation:ripple 2s infinite;
+}
+@keyframes ripple{
+  0%{box-shadow:0 0 0 0 rgba(82,160,99,0.5)}
+  70%{box-shadow:0 0 0 8px rgba(82,160,99,0)}
+  100%{box-shadow:0 0 0 0 rgba(82,160,99,0)}
+}
+
+.hero h1{
+  font-size:clamp(2.6rem,5vw,4.2rem);
+  color:var(--text);margin-bottom:1.5rem;
+  font-weight:800;
+}
+.hero h1 .verde{color:var(--verde)}
+.hero h1 .tierra{color:var(--tierra)}
+.hero h1 em{font-style:italic;font-weight:300}
+
+.hero-desc{
+  font-size:1.05rem;color:var(--text2);
+  max-width:480px;margin-bottom:2.5rem;
+  font-weight:300;line-height:1.8;
+}
+
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+
+.btn-primary{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  background:var(--verde);color:#fff;
+  padding:0.9rem 2rem;border-radius:999px;
+  text-decoration:none;font-weight:600;font-size:0.95rem;
+  border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;
+  box-shadow:0 6px 20px rgba(61,122,74,0.3);
+  transition:all 0.25s;
+}
+.btn-primary:hover{background:var(--verde2);transform:translateY(-3px);box-shadow:0 10px 28px rgba(61,122,74,0.35)}
+
+.btn-secondary{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  background:transparent;color:var(--tierra);
+  border:2px solid var(--tierra);
+  padding:0.88rem 1.8rem;border-radius:999px;
+  text-decoration:none;font-weight:600;font-size:0.95rem;
+  cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;
+  transition:all 0.25s;
+}
+.btn-secondary:hover{background:var(--tierra);color:#fff;transform:translateY(-3px)}
+
+.btn-tierra{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  background:var(--tierra);color:#fff;
+  padding:0.9rem 2rem;border-radius:999px;
+  text-decoration:none;font-weight:600;font-size:0.95rem;
+  border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;
+  box-shadow:0 6px 20px rgba(181,98,42,0.3);
+  transition:all 0.25s;
+}
+.btn-tierra:hover{background:var(--tierra2);transform:translateY(-3px)}
+
+.hero-stats{
+  display:flex;gap:2.5rem;margin-top:3rem;
+  padding-top:2.5rem;border-top:1px solid var(--sand3);
+  flex-wrap:wrap;
+}
+.stat-num{
+  display:block;font-family:'Fraunces',serif;
+  font-size:2rem;color:var(--verde);font-weight:800;
+  line-height:1;
+}
+.stat-lbl{font-size:0.8rem;color:var(--text3);font-weight:400}
+
+/* hero imagen visual */
+.hero-visual{position:relative}
+.hero-card-main{
+  background:var(--sand);border-radius:var(--radius-lg);
+  aspect-ratio:4/5;overflow:hidden;
+  border:2px solid var(--sand3);
+  box-shadow:var(--shadow-lg);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:1rem;
+  color:var(--text3);
+  position:relative;
+}
+.hero-card-main .ph-big{font-size:3.5rem;opacity:0.3}
+.hero-card-main .ph-txt{font-size:0.8rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;opacity:0.5}
+
+.hero-float-1{
+  position:absolute;top:-1.5rem;right:-1.5rem;
+  background:var(--warm-white);
+  border:1px solid var(--sand3);
+  border-radius:var(--radius);
+  padding:1rem 1.3rem;
+  box-shadow:var(--shadow);
+  font-family:'Fraunces',serif;
+}
+.hero-float-1 .f-num{font-size:1.6rem;color:var(--tierra);font-weight:800;line-height:1}
+.hero-float-1 .f-lbl{font-size:0.72rem;color:var(--text3)}
+
+.hero-float-2{
+  position:absolute;bottom:2rem;left:-2rem;
+  background:var(--verde);
+  border-radius:var(--radius);
+  padding:0.9rem 1.2rem;
+  box-shadow:var(--shadow);
+  color:#fff;
+  display:flex;align-items:center;gap:0.7rem;
+}
+.hero-float-2 .f-icon{font-size:1.4rem}
+.hero-float-2 .f-text{font-size:0.8rem;font-weight:600;line-height:1.4}
+
+/* ─── SECTION BASE ─── */
+section{padding:6rem 5%}
+.container{max-width:1200px;margin:0 auto}
+
+.chip{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  font-size:0.75rem;font-weight:700;
+  letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--tierra);margin-bottom:1rem;
+}
+.chip::before{content:'';width:18px;height:2px;background:var(--tierra);border-radius:1px}
+
+.sec-title{
+  font-size:clamp(1.9rem,3.5vw,3rem);
+  color:var(--text);margin-bottom:1rem;font-weight:800;
+}
+.sec-title em{font-style:italic;font-weight:300;color:var(--verde)}
+.sec-sub{
+  color:var(--text2);font-size:1rem;
+  font-weight:300;line-height:1.8;max-width:560px;
+}
+
+/* ─── NOSOTROS ─── */
+.about{background:var(--sand)}
+
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:5rem;align-items:center;margin-top:4rem;
+}
+.about-img-wrap{position:relative}
+.about-img{
+  border-radius:var(--radius-lg);overflow:hidden;
+  aspect-ratio:3/4;
+  background:var(--sand2);
+  border:2px solid var(--sand3);
+  box-shadow:var(--shadow-lg);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:0.8rem;color:var(--text3);
+}
+.about-img .ph-icon{font-size:2.5rem;opacity:0.35}
+.about-img .ph-txt{font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;opacity:0.5}
+
+/* INSTRUCCIÓN foto: reemplazá el div .about-img por:
+   <img src="fotos/TU-FOTO.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-lg)"> */
+
+.about-badge{
+  position:absolute;bottom:-1.5rem;right:-1.5rem;
+  background:var(--tierra);color:#fff;
+  border-radius:var(--radius);padding:1.2rem 1.5rem;
+  box-shadow:var(--shadow);text-align:center;
+}
+.about-badge-num{font-family:'Fraunces',serif;font-size:2rem;font-weight:800;line-height:1;display:block}
+.about-badge-txt{font-size:0.72rem;opacity:0.85;font-style:italic}
+
+.values{display:flex;flex-direction:column;gap:1.2rem;margin-top:2.5rem}
+.value-card{
+  display:flex;gap:1rem;align-items:flex-start;
+  padding:1.2rem;border-radius:var(--radius);
+  background:var(--warm-white);border:1px solid var(--sand3);
+  transition:border-color 0.3s,box-shadow 0.3s;
+}
+.value-card:hover{border-color:var(--verde3);box-shadow:0 4px 16px rgba(61,122,74,0.08)}
+.value-icon{
+  width:44px;height:44px;border-radius:12px;
+  background:rgba(61,122,74,0.1);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;flex-shrink:0;
+}
+.value-card h4{font-family:'Fraunces',serif;color:var(--text);font-size:1rem;margin-bottom:0.2rem}
+.value-card p{font-size:0.88rem;color:var(--text2)}
+
+/* ─── POR QUÉ ─── */
+.why{background:var(--warm-white)}
+.why-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;margin-top:4rem;
+}
+.why-card{
+  background:var(--sand);border:1.5px solid var(--sand3);
+  border-radius:var(--radius-lg);padding:2rem 1.6rem;
+  transition:all 0.3s;position:relative;overflow:hidden;
+}
+.why-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(to right,var(--verde),var(--verde2));
+  transform:scaleX(0);transform-origin:left;transition:transform 0.3s;
+}
+.why-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--verde3)}
+.why-card:hover::after{transform:scaleX(1)}
+.why-emoji{font-size:2.2rem;margin-bottom:1rem;display:block}
+.why-card h3{font-family:'Fraunces',serif;font-size:1.1rem;color:var(--text);margin-bottom:0.5rem}
+.why-card p{font-size:0.88rem;color:var(--text2);line-height:1.7}
+
+/* ─── ESPACIOS ─── */
+.spaces{background:var(--sand)}
+.spaces-header{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:3rem;align-items:end;margin-bottom:3rem;
+}
+.spaces-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:auto auto;
+  gap:1.2rem;
+}
+.space-card{
+  border-radius:var(--radius-lg);overflow:hidden;
+  background:var(--sand2);border:1.5px solid var(--sand3);
+  transition:all 0.3s;cursor:default;
+  box-shadow:0 2px 8px rgba(44,31,16,0.05);
+}
+.space-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.space-card.wide{grid-column:span 2}
+.space-img{
+  aspect-ratio:4/3;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:0.5rem;position:relative;overflow:hidden;
+}
+.space-card.wide .space-img{aspect-ratio:16/7}
+.sp-bg1{background:linear-gradient(145deg,#c8dfc8,#e8f5e9)}
+.sp-bg2{background:linear-gradient(145deg,#ddd0bc,#f0e8d8)}
+.sp-bg3{background:linear-gradient(145deg,#c8d8e0,#ddeef5)}
+.sp-bg4{background:linear-gradient(145deg,#e0d0c0,#f5ead8)}
+.space-img .sp-icon{font-size:2.2rem;opacity:0.3}
+.space-img .sp-lbl{font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(44,31,16,0.35)}
+.space-info{padding:1.2rem 1.4rem}
+.space-info h3{font-family:'Fraunces',serif;font-size:1rem;color:var(--text);margin-bottom:0.3rem}
+.space-info p{font-size:0.83rem;color:var(--text2);line-height:1.6}
+
+/* ─── VIDEO ─── */
+.video-sec{
+  background:var(--verde-dark);
+  padding:7rem 5%;text-align:center;
+  position:relative;overflow:hidden;
+}
+.video-sec::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(255,255,255,0.04) 1px,transparent 1px);
+  background-size:28px 28px;pointer-events:none;
+}
+.video-sec .chip{color:var(--verde3)}
+.video-sec .chip::before{background:var(--verde3)}
+.video-sec .sec-title{color:var(--warm-white)}
+.video-sec .sec-title em{color:var(--tierra3)}
+.video-sec .sec-sub{color:rgba(250,246,240,0.7);margin:0 auto}
+
+.video-frame{
+  max-width:860px;margin:3.5rem auto 0;
+  aspect-ratio:16/9;border-radius:var(--radius-lg);
+  overflow:hidden;background:rgba(0,0,0,0.3);
+  border:1.5px solid rgba(255,255,255,0.1);
+  box-shadow:0 30px 80px rgba(0,0,0,0.4);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:1.5rem;
+  position:relative;
+}
+.play-btn{
+  width:72px;height:72px;border-radius:50%;
+  background:var(--tierra);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.6rem;cursor:pointer;
+  box-shadow:0 0 0 0 rgba(181,98,42,0.4);
+  animation:playPulse 2.5s infinite;
+  transition:transform 0.2s;
+  border:none;color:#fff;
+}
+.play-btn:hover{transform:scale(1.12)}
+@keyframes playPulse{
+  0%{box-shadow:0 0 0 0 rgba(181,98,42,0.4)}
+  70%{box-shadow:0 0 0 20px rgba(181,98,42,0)}
+  100%{box-shadow:0 0 0 0 rgba(181,98,42,0)}
+}
+.video-hint{color:rgba(255,255,255,0.5);font-size:0.82rem;max-width:400px;line-height:1.6}
+.video-hint code{
+  background:rgba(255,255,255,0.08);
+  padding:0.15rem 0.5rem;border-radius:4px;
+  font-size:0.78rem;color:var(--tierra3);
+}
+
+/* ─── TALLERES ─── */
+.talleres{background:var(--warm-white)}
+.talleres-grid{
+  display:grid;grid-template-columns:1.2fr 1fr;
+  gap:4rem;align-items:start;margin-top:4rem;
+}
+.talleres-list{display:flex;flex-direction:column;gap:1rem}
+.taller-card{
+  background:var(--sand);border:1.5px solid var(--sand3);
+  border-radius:var(--radius);padding:1.5rem;
+  transition:all 0.3s;border-left:4px solid var(--verde);
+}
+.taller-card:hover{box-shadow:var(--shadow);transform:translateX(4px);border-color:var(--verde2)}
+.taller-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.5rem;flex-wrap:wrap;gap:0.4rem}
+.taller-tag{
+  font-size:0.72rem;font-weight:700;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--tierra);
+  background:rgba(181,98,42,0.1);
+  border:1px solid rgba(181,98,42,0.2);
+  padding:0.2rem 0.6rem;border-radius:999px;
+}
+.taller-card h3{font-family:'Fraunces',serif;font-size:1.05rem;color:var(--text);margin-bottom:0.4rem}
+.taller-card p{font-size:0.86rem;color:var(--text2);margin-bottom:0.8rem}
+.taller-fecha{font-size:0.8rem;color:var(--verde);font-weight:600;display:flex;align-items:center;gap:0.3rem}
+
+.inscripcion-box{
+  background:var(--sand);border:1.5px solid var(--sand3);
+  border-radius:var(--radius-lg);padding:2.2rem;
+  position:sticky;top:5rem;
+}
+.inscripcion-box h3{font-family:'Fraunces',serif;font-size:1.6rem;color:var(--text);margin-bottom:0.6rem}
+.inscripcion-box p{font-size:0.9rem;color:var(--text2);margin-bottom:1.5rem}
+.form-field{margin-bottom:1rem}
+.form-field label{display:block;font-size:0.78rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--verde-dark);margin-bottom:0.4rem}
+.form-input{
+  width:100%;padding:0.8rem 1rem;
+  background:var(--warm-white);border:1.5px solid var(--sand3);
+  border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.9rem;color:var(--text);outline:none;
+  transition:border-color 0.2s,box-shadow 0.2s;
+}
+.form-input:focus{border-color:var(--verde);box-shadow:0 0 0 3px rgba(61,122,74,0.1)}
+.form-input::placeholder{color:var(--text3)}
+select.form-input option{background:var(--warm-white);color:var(--text)}
+textarea.form-input{height:110px;resize:vertical}
+.form-ok{
+  display:none;margin-top:1rem;padding:1rem;
+  background:rgba(61,122,74,0.08);border:1px solid rgba(61,122,74,0.25);
+  border-radius:10px;color:var(--verde-dark);font-size:0.88rem;
+}
+
+/* ─── GUÍAS ─── */
+.guias{background:var(--sand)}
+.guias-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1.2rem;margin-top:3.5rem;
+}
+.guia-card{
+  background:var(--warm-white);border:1.5px solid var(--sand3);
+  border-radius:var(--radius-lg);padding:1.8rem;
+  display:flex;flex-direction:column;gap:0.8rem;
+  transition:all 0.3s;
+}
+.guia-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--verde3)}
+.guia-wrap-icon{
+  width:50px;height:50px;border-radius:14px;
+  background:rgba(61,122,74,0.08);
+  display:flex;align-items:center;justify-content:center;font-size:1.5rem;
+  border:1px solid rgba(61,122,74,0.15);
+}
+.guia-card h3{font-family:'Fraunces',serif;font-size:1rem;color:var(--text)}
+.guia-card p{font-size:0.85rem;color:var(--text2);flex:1;line-height:1.7}
+.guia-lnk{
+  display:inline-flex;align-items:center;gap:0.3rem;
+  font-size:0.83rem;font-weight:700;color:var(--verde);
+  text-decoration:none;transition:gap 0.2s;
+}
+.guia-lnk:hover{gap:0.6rem}
+
+/* ─── TESTIMONIOS ─── */
+.testimonios{background:var(--warm-white);overflow:hidden}
+.test-marquee-wrap{margin-top:3.5rem;overflow:hidden;position:relative}
+.test-marquee-wrap::before,.test-marquee-wrap::after{
+  content:'';position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none;
+}
+.test-marquee-wrap::before{left:0;background:linear-gradient(to right,var(--warm-white),transparent)}
+.test-marquee-wrap::after{right:0;background:linear-gradient(to left,var(--warm-white),transparent)}
+.test-marquee{display:flex;gap:1.2rem;animation:scrollX 35s linear infinite;width:max-content}
+.test-marquee:hover{animation-play-state:paused}
+@keyframes scrollX{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.test-card{
+  background:var(--sand);border:1.5px solid var(--sand3);
+  border-radius:var(--radius-lg);padding:2rem;
+  width:300px;flex-shrink:0;
+}
+.test-q{font-family:'Fraunces',serif;font-size:2rem;color:var(--tierra);line-height:1;margin-bottom:0.5rem}
+.test-card p{font-size:0.92rem;color:var(--text);font-style:italic;margin-bottom:1.2rem;line-height:1.7}
+.test-by{display:flex;align-items:center;gap:0.7rem}
+.test-av{
+  width:36px;height:36px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--verde),var(--verde2));
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:0.82rem;color:#fff;
+}
+.test-name{font-size:0.85rem;font-weight:700;color:var(--text)}
+.test-lugar{font-size:0.75rem;color:var(--text3)}
+
+/* ─── CONTACTO ─── */
+.contacto{background:var(--sand)}
+.contacto-grid{
+  display:grid;grid-template-columns:1.2fr 1fr;
+  gap:5rem;align-items:start;margin-top:4rem;
+}
+.contact-form-wrap{}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.qr-box{
+  background:var(--warm-white);border:1.5px solid var(--sand3);
+  border-radius:var(--radius-lg);padding:2.5rem;
+  text-align:center;position:sticky;top:5rem;
+  box-shadow:var(--shadow);
+}
+.qr-box h3{font-family:'Fraunces',serif;font-size:1.4rem;color:var(--text);margin-bottom:0.5rem}
+.qr-box .qr-sub{font-size:0.88rem;color:var(--text2);margin-bottom:2rem}
+#qrcode{display:flex;justify-content:center;margin-bottom:1.2rem}
+#qrcode canvas,#qrcode img{border-radius:10px;border:6px solid var(--warm-white);box-shadow:var(--shadow)}
+.qr-url{font-size:0.8rem;color:var(--verde);font-weight:700;word-break:break-all;margin-bottom:2rem}
+.contact-items{display:flex;flex-direction:column;gap:0.8rem;text-align:left;border-top:1px solid var(--sand3);padding-top:1.5rem}
+.c-row{display:flex;align-items:center;gap:0.7rem;font-size:0.87rem;color:var(--text2)}
+.c-icon{font-size:1.1rem;width:1.5rem;text-align:center}
+.c-row strong{color:var(--verde-dark)}
+
+/* ─── MAPA ─── */
+.mapa-wrap{
+  display:grid;grid-template-columns:1fr 1fr;
+  background:var(--verde-dark);overflow:hidden;
+}
+.mapa-info{
+  padding:5rem;display:flex;
+  flex-direction:column;justify-content:center;
+}
+.mapa-info .chip{color:var(--verde3)}
+.mapa-info .chip::before{background:var(--verde3)}
+.mapa-info h2{font-family:'Fraunces',serif;font-size:2.2rem;color:var(--warm-white);margin-bottom:1rem;font-weight:800}
+.mapa-info p{color:rgba(250,246,240,0.7);margin-bottom:2rem;font-size:0.95rem}
+.mapa-embed{position:relative;min-height:400px}
+.mapa-embed iframe{width:100%;height:100%;border:0;filter:sepia(0.4) hue-rotate(60deg) saturate(0.7) brightness(0.8)}
+.mapa-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,transparent 40%,var(--verde-dark) 100%);pointer-events:none}
+
+/* ─── FOOTER ─── */
+footer{
+  background:var(--text);
+  padding:4rem 5% 2rem;
+}
+.footer-grid{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:3rem;margin-bottom:3rem;
+  max-width:1200px;margin-left:auto;margin-right:auto;
+}
+.foot-logo{font-family:'Fraunces',serif;font-size:1.3rem;color:var(--verde3);margin-bottom:0.8rem;display:flex;align-items:center;gap:0.5rem}
+.footer-brand p{font-size:0.85rem;color:rgba(250,246,240,0.5);max-width:260px}
+.footer-col h5{font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--verde3);margin-bottom:1rem}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem}
+.footer-col ul li a{text-decoration:none;font-size:0.87rem;color:rgba(250,246,240,0.5);transition:color 0.2s}
+.footer-col ul li a:hover{color:var(--verde3)}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.08);
+  padding-top:2rem;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1rem;
+  max-width:1200px;margin:0 auto;
+}
+.footer-bottom p{font-size:0.8rem;color:rgba(250,246,240,0.35)}
+.made{color:var(--verde3)!important;opacity:1!important}
+
+/* ─── BACK TO TOP ─── */
+.back-top{
+  position:fixed;bottom:1.5rem;right:1.5rem;z-index:300;
+  width:46px;height:46px;border-radius:50%;
+  background:var(--verde);color:#fff;border:none;cursor:pointer;
+  font-size:1.1rem;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 16px rgba(61,122,74,0.35);
+  opacity:0;pointer-events:none;transform:translateY(10px);
+  transition:all 0.3s;
+}
+.back-top.show{opacity:1;pointer-events:all;transform:translateY(0)}
+.back-top:hover{background:var(--verde2);transform:translateY(-3px)!important}
+
+/* ─── REVEAL ─── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:0.1s}
+.reveal-d2{transition-delay:0.2s}
+.reveal-d3{transition-delay:0.3s}
+
+/* ─── HERO ANIMATIONS ─── */
+.h-a1{animation:fadeUp 0.8s 0.1s both ease}
+.h-a2{animation:fadeUp 0.8s 0.25s both ease}
+.h-a3{animation:fadeUp 0.8s 0.4s both ease}
+.h-a4{animation:fadeUp 0.8s 0.55s both ease}
+.h-a5{animation:fadeUp 0.8s 0.7s both ease}
+.h-a6{animation:fadeUp 0.8s 0.4s both ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:1024px){
+  .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
+  .spaces-grid{grid-template-columns:repeat(2,1fr)}
+  .space-card.wide{grid-column:span 2}
+  .guias-grid{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+
+  .hero-inner{grid-template-columns:1fr;gap:2.5rem}
+  .hero-visual{display:none}
+  .hero{min-height:auto;padding:3rem 5% 4rem}
+  .hero h1{font-size:2.4rem}
+  .hero-stats{gap:1.5rem}
+
+  .about-grid,
+  .talleres-grid,
+  .contacto-grid,
+  .mapa-wrap,
+  .spaces-header{grid-template-columns:1fr;gap:2rem}
+
+  .about-badge{right:1rem;bottom:1rem}
+  .mapa-info{padding:3rem 5%}
+  .mapa-embed{min-height:280px}
+  .inscripcion-box{position:static}
+  .qr-box{position:static}
+
+  .spaces-grid{grid-template-columns:1fr;gap:1rem}
+  .space-card.wide{grid-column:span 1}
+
+  .why-grid{grid-template-columns:1fr}
+  .guias-grid{grid-template-columns:1fr 1fr}
+
+  .footer-grid{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+
+  .form-row{grid-template-columns:1fr}
+}
+
+@media(max-width:480px){
+  section{padding:4rem 5%}
+  .hero h1{font-size:2rem}
+  .hero-badge{font-size:0.7rem}
+  .guias-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .hero-stats{flex-direction:column;gap:1rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ─── LANG BAR ─── -->
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('es')" id="btn-es">🇦🇷 Español</button>
+  <button class="lang-btn" onclick="setLang('en')" id="btn-en">🇺🇸 English</button>
+</div>
+
+<!-- ─── NAVBAR ─── -->
+<nav id="navbar">
+  <a href="#inicio" class="nav-logo">
+    <div class="logo-mark">🌱</div>
+    <div class="logo-text">
+      Sembrando Conciencia
+      <small data-es="Huerta Solidaria · Merlo, BA" data-en="Community Garden · Merlo, BA">Huerta Solidaria · Merlo, BA</small>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#nosotros" data-es="Nosotros" data-en="About Us">Nosotros</a></li>
+    <li><a href="#por-que" data-es="¿Por qué plantar?" data-en="Why Plant?">¿Por qué plantar?</a></li>
+    <li><a href="#espacios" data-es="Espacios" data-en="Spaces">Espacios</a></li>
+    <li><a href="#video" data-es="Video" data-en="Video">Video</a></li>
+    <li><a href="#talleres" data-es="Talleres" data-en="Workshops">Talleres</a></li>
+    <li><a href="#contacto" class="nav-cta" data-es="Sumate →" data-en="Join Us →">Sumate →</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ─── DRAWER MOBILE ─── -->
+<div class="overlay" id="overlay" onclick="closeDrawer()"></div>
+<div class="drawer" id="drawer">
+  <button class="drawer-close" onclick="closeDrawer()">✕</button>
+  <a href="#nosotros" onclick="closeDrawer()" data-es="Nosotros" data-en="About Us">Nosotros</a>
+  <a href="#por-que" onclick="closeDrawer()" data-es="¿Por qué plantar?" data-en="Why Plant?">¿Por qué plantar?</a>
+  <a href="#espacios" onclick="closeDrawer()" data-es="Espacios" data-en="Spaces">Espacios</a>
+  <a href="#video" onclick="closeDrawer()" data-es="Video" data-en="Video">Video</a>
+  <a href="#talleres" onclick="closeDrawer()" data-es="Talleres" data-en="Workshops">Talleres</a>
+  <a href="#contacto" class="d-cta" onclick="closeDrawer()" data-es="Sumate →" data-en="Join Us →">Sumate →</a>
+</div>
+
+<!-- ─── HERO ─── -->
+<section id="inicio" class="hero">
+  <div class="hero-inner container">
+    <div class="hero-content">
+      <div class="hero-badge h-a1">
+        <span class="badge-pulse"></span>
+        <span data-es="Huerta Solidaria · Salta 867 (Merlo), Buenos Aires" data-en="Community Garden · Merlo, Buenos Aires">Huerta Solidaria · Merlo, Buenos Aires</span>
+      </div>
+
+      <h1 class="h-a2">
+        <span data-es="Sembrá <span class='verde'>conciencia</span>," data-en="Sow <span class='verde'>awareness</span>,">Sembrá <span class="verde">conciencia</span>,</span><br>
+        <em data-es="cosechá <span class='tierra'>comunidad</span>" data-en="harvest <span class='tierra'>community</span>">cosechá <span class="tierra">comunidad</span></em>
+      </h1>
+
+      <p class="hero-desc h-a3"
+        data-es="Un espacio solidario que enseña que cualquier rincón — un cajón, una maceta, una ventana — puede convertirse en una fuente de alimento fresco y conexión humana."
+        data-en="A community space that teaches that any corner — a crate, a pot, a windowsill — can become a source of fresh food and human connection.">
+        Un espacio solidario que enseña que cualquier rincón — un cajón, una maceta, una ventana — puede convertirse en una fuente de alimento fresco y conexión humana.
+      </p>
+
+      <div class="hero-btns h-a4">
+        <a href="#talleres" class="btn-primary">
+          <span data-es="Ver talleres gratuitos" data-en="Free workshops">Ver talleres gratuitos</span> →
+        </a>
+        <a href="#video" class="btn-secondary">
+          ▶ <span data-es="Nuestra historia" data-en="Our story">Nuestra historia</span>
+        </a>
+      </div>
+
+      <div class="hero-stats h-a5">
+        <div>
+          <span class="stat-num">+200</span>
+          <span class="stat-lbl" data-es="familias participando" data-en="families participating">familias participando</span>
+        </div>
+        <div>
+          <span class="stat-num">48</span>
+          <span class="stat-lbl" data-es="talleres realizados" data-en="workshops held">talleres realizados</span>
+        </div>
+        <div>
+          <span class="stat-num">100%</span>
+          <span class="stat-lbl" data-es="gratuito y abierto" data-en="free & open to all">gratuito y abierto</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual h-a6">
+      <div class="hero-card-main">
+        <!-- REEMPLAZÁ con: <img src="fotos/hero.jpg" alt="Huerta" style="width:100%;height:100%;object-fit:cover"> -->
+        <span class="ph-big">📸</span>
+        <span class="ph-txt" data-es="Tu foto principal aquí" data-en="Your main photo here">Tu foto principal aquí</span>
+      </div>
+      <div class="hero-float-1">
+        <span class="f-num">5 <span data-es="años" data-en="years">años</span></span>
+        <span class="f-lbl" data-es="sembrando juntos" data-en="growing together">sembrando juntos</span>
+      </div>
+      <div class="hero-float-2">
+        <span class="f-icon">🌿</span>
+        <span class="f-text" data-es="Próximo taller<br>este sábado 10hs" data-en="Next workshop<br>this Saturday 10am">Próximo taller<br>este sábado 10hs</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── NOSOTROS ─── -->
+<section class="about" id="nosotros">
+<div class="container">
+  <span class="chip reveal" data-es="Quiénes somos" data-en="Who we are">Quiénes somos</span>
+  <h2 class="sec-title reveal" data-es="Una huerta para <em>todos, sin excepción</em>" data-en="A garden for <em>everyone, no exceptions</em>">Una huerta para <em>todos, sin excepción</em></h2>
+
+  <div class="about-grid">
+    <div class="about-img-wrap reveal">
+      <div class="about-img">
+        <!-- REEMPLAZÁ con: <img src="fotos/comunidad.jpg" alt="Comunidad" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-lg)"> -->
+        <span class="ph-icon">📸</span>
+        <span class="ph-txt" data-es="Foto de la comunidad" data-en="Community photo">Foto de la comunidad</span>
+      </div>
+      <div class="about-badge">
+        <span class="about-badge-num">5</span>
+        <span class="about-badge-txt" data-es="años sembrando" data-en="years growing">años sembrando</span>
+      </div>
+    </div>
+
+    <div class="reveal reveal-d1">
+      <p class="sec-sub" style="margin-bottom:1.5rem"
+        data-es="Somos un grupo de vecinos convencidos de que la tierra no entiende de metros cuadrados. Desde Merlo compartimos conocimiento, semillas y entusiasmo para que cada familia pueda producir parte de su propia comida."
+        data-en="We are a group of neighbors who believe that the earth doesn't understand square footage. From Merlo we share knowledge, seeds and enthusiasm so every family can grow part of their own food.">
+        Somos un grupo de vecinos convencidos de que la tierra no entiende de metros cuadrados. Desde Merlo compartimos conocimiento, semillas y entusiasmo para que cada familia pueda producir parte de su propia comida.
+      </p>
+      <p class="sec-sub"
+        data-es="No hace falta jardín, ni experiencia previa. Solo las ganas de aprender y conectar con otros."
+        data-en="No garden needed, no prior experience. Just the will to learn and connect with others.">
+        No hace falta jardín, ni experiencia previa. Solo las ganas de aprender y conectar con otros.
+      </p>
+
+      <div class="values">
+        <div class="value-card">
+          <div class="value-icon">🤝</div>
+          <div>
+            <h4 data-es="Solidaridad sin condiciones" data-en="Unconditional solidarity">Solidaridad sin condiciones</h4>
+            <p data-es="Compartimos semillas, saberes y cosechas. Todo es libre y abierto a quien quiera sumarse." data-en="We share seeds, knowledge and harvests. Everything is free and open to whoever wants to join.">Compartimos semillas, saberes y cosechas. Todo es libre y abierto a quien quiera sumarse.</p>
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🌍</div>
+          <div>
+            <h4 data-es="Conciencia ambiental" data-en="Environmental awareness">Conciencia ambiental</h4>
+            <p data-es="Menos agroquímicos, más biodiversidad. Cada planta en una maceta es un acto político y ecológico." data-en="Fewer chemicals, more biodiversity. Every plant in a pot is a political and ecological act.">Menos agroquímicos, más biodiversidad. Cada planta en una maceta es un acto político y ecológico.</p>
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">📚</div>
+          <div>
+            <h4 data-es="Educación popular" data-en="Community education">Educación popular</h4>
+            <p data-es="Aprendemos todos de todos. Los talleres son horizontales, participativos y gratuitos." data-en="We all learn from each other. Workshops are collaborative, participatory and free.">Aprendemos todos de todos. Los talleres son horizontales, participativos y gratuitos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ─── POR QUÉ ─── -->
+<section class="why" id="por-que">
+<div class="container">
+  <span class="chip reveal" data-es="Razones para empezar" data-en="Reasons to start">Razones para empezar</span>
+  <h2 class="sec-title reveal" data-es="¿Por qué plantar <em>donde sea?</em>" data-en="Why plant <em>anywhere?</em>">¿Por qué plantar <em>donde sea?</em></h2>
+  <p class="sec-sub reveal"
+    data-es="Cultivar en casa no es solo una tendencia. Es salud, ahorro, libertad y comunidad."
+    data-en="Growing food at home is not just a trend. It's health, savings, freedom and community.">
+    Cultivar en casa no es solo una tendencia. Es salud, ahorro, libertad y comunidad.
+  </p>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <span class="why-emoji">🥗</span>
+      <h3 data-es="Alimentación real" data-en="Real food">Alimentación real</h3>
+      <p data-es="Vegetales frescos, sin pesticidas, cosechados en el momento. La diferencia en sabor y nutrición es enorme." data-en="Fresh vegetables, pesticide-free, harvested right away. The difference in taste and nutrition is huge.">Vegetales frescos, sin pesticidas, cosechados en el momento. La diferencia en sabor y nutrición es enorme.</p>
+    </div>
+    <div class="why-card reveal reveal-d1">
+      <span class="why-emoji">💰</span>
+      <h3 data-es="Ahorro concreto" data-en="Real savings">Ahorro concreto</h3>
+      <p data-es="Tomates, lechugas, aromáticas y más. Reducís el gasto en verdulería de forma significativa mes a mes." data-en="Tomatoes, lettuce, herbs and more. Significantly reduce your grocery spending month after month.">Tomates, lechugas, aromáticas y más. Reducís el gasto en verdulería de forma significativa mes a mes.</p>
+    </div>
+    <div class="why-card reveal reveal-d2">
+      <span class="why-emoji">🧘</span>
+      <h3 data-es="Bienestar mental" data-en="Mental wellbeing">Bienestar mental</h3>
+      <p data-es="Cuidar plantas reduce el estrés, genera rutinas positivas y reconecta con los ciclos naturales de la vida." data-en="Caring for plants reduces stress, creates positive routines and reconnects you with nature's cycles.">Cuidar plantas reduce el estrés, genera rutinas positivas y reconecta con los ciclos naturales de la vida.</p>
+    </div>
+    <div class="why-card reveal">
+      <span class="why-emoji">👨‍👩‍👧</span>
+      <h3 data-es="Vínculo familiar" data-en="Family bonding">Vínculo familiar</h3>
+      <p data-es="La huerta enseña paciencia, responsabilidad y el asombro de ver crecer algo propio." data-en="The garden teaches patience, responsibility and the wonder of watching something grow.">La huerta enseña paciencia, responsabilidad y el asombro de ver crecer algo propio.</p>
+    </div>
+    <div class="why-card reveal reveal-d1">
+      <span class="why-emoji">♻️</span>
+      <h3 data-es="Ciclo cerrado" data-en="Closed loop">Ciclo cerrado</h3>
+      <p data-es="Compostás tus residuos, usás menos plástico y construís un pequeño ecosistema desde tu hogar." data-en="Compost your waste, use less plastic and build a small ecosystem right at home.">Compostás tus residuos, usás menos plástico y construís un pequeño ecosistema desde tu hogar.</p>
+    </div>
+    <div class="why-card reveal reveal-d2">
+      <span class="why-emoji">🌐</span>
+      <h3 data-es="Red comunitaria" data-en="Community network">Red comunitaria</h3>
+      <p data-es="La huerta une vecinos, genera trueques de semillas y construye el tejido social del barrio." data-en="The garden unites neighbors, creates seed exchanges and builds the social fabric of the neighborhood.">La huerta une vecinos, genera trueques de semillas y construye el tejido social del barrio.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ─── ESPACIOS ─── -->
+<section class="spaces" id="espacios">
+<div class="container">
+  <div class="spaces-header">
+    <div class="reveal">
+      <span class="chip" data-es="¿Dónde plantar?" data-en="Where to plant?">¿Dónde plantar?</span>
+      <h2 class="sec-title" data-es="Cualquier rincón <em>es suficiente</em>" data-en="Any corner <em>is enough</em>">Cualquier rincón <em>es suficiente</em></h2>
+    </div>
+    <p class="sec-sub reveal"
+      data-es="No necesitás jardín. Solo ganas. Mirá cuántos espacios se transforman en huertas con imaginación."
+      data-en="You don't need a garden. Just the will. See how many spaces can become gardens with imagination.">
+      No necesitás jardín. Solo ganas. Mirá cuántos espacios se transforman en huertas con imaginación.
+    </p>
+  </div>
+
+  <div class="spaces-grid reveal">
+    <div class="space-card wide">
+      <div class="space-img sp-bg1">
+        <!-- REEMPLAZÁ: <img src="fotos/balcon.jpg" style="width:100%;height:100%;object-fit:cover"> -->
+        <span class="sp-icon">🏠</span>
+        <span class="sp-lbl" data-es="📸 Foto de balcón" data-en="📸 Balcony photo">📸 Foto de balcón</span>
+      </div>
+      <div class="space-info">
+        <h3 data-es="Balcón" data-en="Balcony">Balcón</h3>
+        <p data-es="El más versátil. Con cajones o macetas grandes puede dar lechugas, tomates cherry y hierbas todo el año." data-en="The most versatile. With crates or large pots it can produce lettuce, cherry tomatoes and herbs all year.">El más versátil. Con cajones o macetas grandes puede dar lechugas, tomates cherry y hierbas todo el año.</p>
+      </div>
+    </div>
+    <div class="space-card">
+      <div class="space-img sp-bg2">
+        <span class="sp-icon">🪟</span>
+        <span class="sp-lbl" data-es="📸 Foto ventana" data-en="📸 Window photo">📸 Foto ventana</span>
+      </div>
+      <div class="space-info">
+        <h3 data-es="Ventana" data-en="Window">Ventana</h3>
+        <p data-es="Aromáticas, brotes y microgreens. Una repisa con sol es una despensa viva." data-en="Herbs, sprouts and microgreens. A sunny sill is a living pantry.">Aromáticas, brotes y microgreens. Una repisa con sol es una despensa viva.</p>
+      </div>
+    </div>
+    <div class="space-card">
+      <div class="space-img sp-bg3">
+        <span class="sp-icon">🪵</span>
+        <span class="sp-lbl" data-es="📸 Foto cajones" data-en="📸 Crates photo">📸 Foto cajones</span>
+      </div>
+      <div class="space-info">
+        <h3 data-es="Cajones reciclados" data-en="Recycled crates">Cajones reciclados</h3>
+        <p data-es="Los cajones de madera son perfectos para huertas verticales y horizontales en cualquier espacio." data-en="Wooden crates are perfect for vertical and horizontal gardens in any space.">Los cajones de madera son perfectos para huertas verticales y horizontales en cualquier espacio.</p>
+      </div>
+    </div>
+    <div class="space-card wide">
+      <div class="space-img sp-bg4">
+        <span class="sp-icon">🏘️</span>
+        <span class="sp-lbl" data-es="📸 Foto techo / terraza" data-en="📸 Rooftop photo">📸 Foto techo / terraza</span>
+      </div>
+      <div class="space-info">
+        <h3 data-es="Techo y terraza" data-en="Rooftop & terrace">Techo y terraza</h3>
+        <p data-es="Con los vecinos correctos, un techo plano se convierte en el campo más productivo del edificio." data-en="With the right neighbors, a flat roof becomes the most productive field in the building.">Con los vecinos correctos, un techo plano se convierte en el campo más productivo del edificio.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ─── VIDEO ─── -->
+<section class="video-sec" id="video">
+<div class="container">
+  <span class="chip reveal" data-es="Mirá y aprendé" data-en="Watch & learn">Mirá y aprendé</span>
+  <h2 class="sec-title reveal" data-es="Nuestra historia <em>en 5 minutos</em>" data-en="Our story <em>in 5 minutes</em>">Nuestra historia <em>en 5 minutos</em></h2>
+  <p class="sec-sub reveal"
+    data-es="Un video que muestra de dónde venimos, qué hacemos cada sábado y por qué creemos que plantar es uno de los actos más revolucionarios de nuestro tiempo."
+    data-en="A video showing where we come from, what we do every Saturday, and why we believe planting is one of the most revolutionary acts of our time.">
+    Un video que muestra de dónde venimos, qué hacemos cada sábado y por qué creemos que plantar es uno de los actos más revolucionarios de nuestro tiempo.
+  </p>
+
+  <div class="video-frame reveal">
+    <!--
+    ══════════════════════════════════════════════════════
+    CÓMO AGREGAR TU VIDEO:
+    ══════════════════════════════════════════════════════
+
+    OPCIÓN A — YouTube (reemplazá TODO el div .video-frame por):
+    <iframe class="video-frame" style="border:none"
+      src="https://www.youtube.com/embed/TU_ID_AQUI?autoplay=0"
+      allow="accelerometer; autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen></iframe>
+
+    OPCIÓN B — Video propio .mp4:
+    <video class="video-frame" controls poster="fotos/preview-video.jpg">
+      <source src="videos/sembrando.mp4" type="video/mp4">
+    </video>
+    ══════════════════════════════════════════════════════
+    -->
+    <button class="play-btn" onclick="alert('¡Agregá tu video! Leé las instrucciones en el código.')">▶</button>
+    <p class="video-hint"
+      data-es="Colocar el video. Reemplazar este bloque con un &lt;iframe&gt; de YouTube o una etiqueta &lt;video&gt;. Las instrucciones están en el código."
+      data-en="Your video goes here. Replace this block with a YouTube &lt;iframe&gt; or a &lt;video&gt; tag. Instructions are in the code.">
+      Tu video va aquí. Reemplazá este bloque con un <code>&lt;iframe&gt;</code> de YouTube o una etiqueta <code>&lt;video&gt;</code>.
+    </p>
+  </div>
+</div>
+</section>
+
+<!-- ─── TALLERES ─── -->
+<section class="talleres" id="talleres">
+<div class="container">
+  <span class="chip reveal" data-es="Aprendé con nosotros" data-en="Learn with us">Aprendé con nosotros</span>
+  <h2 class="sec-title reveal" data-es="Talleres gratuitos, <em>todos los sábados</em>" data-en="Free workshops, <em>every Saturday</em>">Talleres gratuitos, <em>todos los sábados</em></h2>
+
+  <div class="talleres-grid">
+    <div class="talleres-list">
+      <div class="taller-card reveal">
+        <div class="taller-top">
+          <span class="taller-fecha">📅 <span data-es="Próximo sábado · 10hs" data-en="Next Saturday · 10am">Próximo sábado · 10hs</span></span>
+          <span class="taller-tag" data-es="Principiantes" data-en="Beginners">Principiantes</span>
+        </div>
+        <h3 data-es="Tu primera huerta en cajón" data-en="Your first crate garden">Tu primera huerta en cajón</h3>
+        <p data-es="Preparación de tierra, elección de plantas según estación y riego correcto. Sin experiencia previa necesaria." data-en="Soil preparation, choosing seasonal plants and correct watering. No prior experience needed.">Preparación de tierra, elección de plantas según estación y riego correcto. Sin experiencia previa necesaria.</p>
+      </div>
+
+      <div class="taller-card reveal reveal-d1">
+        <div class="taller-top">
+          <span class="taller-fecha">📅 <span data-es="En 2 semanas · 10hs" data-en="In 2 weeks · 10am">En 2 semanas · 10hs</span></span>
+          <span class="taller-tag" data-es="Todos los niveles" data-en="All levels">Todos los niveles</span>
+        </div>
+        <h3 data-es="Compost casero sin malos olores" data-en="Home composting without bad smells">Compost casero sin malos olores</h3>
+        <p data-es="Convertí tus residuos orgánicos en el mejor abono del mercado. Aplicable en cualquier espacio." data-en="Turn your organic waste into the best fertilizer available. Applicable in any space.">Convertí tus residuos orgánicos en el mejor abono del mercado. Aplicable en cualquier espacio.</p>
+      </div>
+
+      <div class="taller-card reveal reveal-d2">
+        <div class="taller-top">
+          <span class="taller-fecha">📅 <span data-es="Este mes · 10hs" data-en="This month · 10am">Este mes · 10hs</span></span>
+          <span class="taller-tag" data-es="Intermedio" data-en="Intermediate">Intermedio</span>
+        </div>
+        <h3 data-es="Aromáticas y medicinales" data-en="Herbs & medicinal plants">Aromáticas y medicinales</h3>
+        <p data-es="Menta, orégano, ruda, lavanda. Cómo cultivarlas, cosecharlas y usarlas en la cocina y la salud." data-en="Mint, oregano, rue, lavender. How to grow, harvest and use them in cooking and health.">Menta, orégano, ruda, lavanda. Cómo cultivarlas, cosecharlas y usarlas en la cocina y la salud.</p>
+      </div>
+
+      <div class="taller-card reveal">
+        <div class="taller-top">
+          <span class="taller-fecha">📅 <span data-es="Próximo mes · 10hs" data-en="Next month · 10am">Próximo mes · 10hs</span></span>
+          <span class="taller-tag" data-es="Avanzado" data-en="Advanced">Avanzado</span>
+        </div>
+        <h3 data-es="Guardado y multiplicación de semillas" data-en="Seed saving & multiplication">Guardado y multiplicación de semillas</h3>
+        <p data-es="Cómo seleccionar, secar y guardar semillas para asegurar cosechas futuras sin comprar nunca más." data-en="How to select, dry and store seeds to secure future harvests without ever buying again.">Cómo seleccionar, secar y guardar semillas para asegurar cosechas futuras sin comprar nunca más.</p>
+      </div>
+    </div>
+
+    <div class="inscripcion-box reveal reveal-d1">
+      <h3 data-es="Anotate a un taller" data-en="Sign up for a workshop">Anotate a un taller</h3>
+      <p data-es="Completá tu nombre y WhatsApp y te mandamos la info del próximo encuentro. Es totalmente gratuito." data-en="Fill in your name and WhatsApp and we'll send you info about the next gathering. Completely free.">Completá tu nombre y WhatsApp y te mandamos la info del próximo encuentro. Es totalmente gratuito.</p>
+      <div class="form-field">
+        <label data-es="Nombre completo" data-en="Full name">Nombre completo</label>
+        <input class="form-input" type="text" id="t-nombre" placeholder="Tu nombre" data-ph-es="Tu nombre" data-ph-en="Your name"/>
+      </div>
+      <div class="form-field">
+        <label data-es="WhatsApp" data-en="WhatsApp">WhatsApp</label>
+        <input class="form-input" type="tel" id="t-wp" placeholder="11 1234-5678" data-ph-es="11 1234-5678" data-ph-en="Your number"/>
+      </div>
+      <div class="form-field">
+        <label data-es="¿Qué taller te interesa?" data-en="Which workshop interests you?">¿Qué taller te interesa?</label>
+        <select class="form-input" id="t-taller">
+          <option data-es="Elegí una opción..." data-en="Choose an option...">Elegí una opción...</option>
+          <option data-es="Primera huerta en cajón" data-en="First crate garden">Primera huerta en cajón</option>
+          <option data-es="Compost casero" data-en="Home composting">Compost casero</option>
+          <option data-es="Aromáticas y medicinales" data-en="Herbs & medicinal plants">Aromáticas y medicinales</option>
+          <option data-es="Guardado de semillas" data-en="Seed saving">Guardado de semillas</option>
+          <option data-es="¡Me apunto a todos!" data-en="I'm in for all of them!">¡Me apunto a todos!</option>
+        </select>
+      </div>
+      <button class="btn-primary" style="width:100%;justify-content:center" onclick="inscribir()">
+        <span data-es="Quiero anotarme →" data-en="Sign me up →">Quiero anotarme →</span>
+      </button>
+      <div class="form-ok" id="t-ok"
+        data-es="✅ ¡Listo! Te contactamos dentro de las próximas 24 hs 🌱"
+        data-en="✅ Done! We'll contact you within the next 24 hours 🌱">
+        ✅ ¡Listo! Te contactamos dentro de las próximas 24 hs 🌱
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ─── GUÍAS ─── -->
+<section class="guias" id="guias">
+<div class="container">
+  <span class="chip reveal" data-es="Recursos gratuitos" data-en="Free resources">Recursos gratuitos</span>
+  <h2 class="sec-title reveal" data-es="Guías para arrancar <em>desde hoy</em>" data-en="Guides to start <em>today</em>">Guías para arrancar <em>desde hoy</em></h2>
+  <p class="sec-sub reveal"
+    data-es="Material descargable creado por nuestra comunidad. Sin costo, sin registros."
+    data-en="Downloadable material created by our community. No cost, no sign-up.">
+    Material descargable creado por nuestra comunidad. Sin costo, sin registros.
+  </p>
+  <div class="guias-grid">
+    <div class="guia-card reveal">
+      <div class="guia-wrap-icon">📋</div>
+      <h3 data-es="Qué plantar según la estación" data-en="What to plant by season">Qué plantar según la estación</h3>
+      <p data-es="Calendario completo de siembra para el AMBA. Nunca más plantar fuera de temporada." data-en="Complete planting calendar for the Buenos Aires metro area. Never plant out of season again.">Calendario completo de siembra para el AMBA. Nunca más plantar fuera de temporada.</p>
+      <a href="#" class="guia-lnk" data-es="Descargar PDF →" data-en="Download PDF →">Descargar PDF →</a>
+    </div>
+    <div class="guia-card reveal reveal-d1">
+      <div class="guia-wrap-icon">🪣</div>
+      <h3 data-es="Huerta en cajón paso a paso" data-en="Crate garden step by step">Huerta en cajón paso a paso</h3>
+      <p data-es="Materiales, tierra, drenaje, especies recomendadas y primeros cuidados." data-en="Materials, soil, drainage, recommended species and first care steps.">Materiales, tierra, drenaje, especies recomendadas y primeros cuidados.</p>
+      <a href="#" class="guia-lnk" data-es="Descargar PDF →" data-en="Download PDF →">Descargar PDF →</a>
+    </div>
+    <div class="guia-card reveal reveal-d2">
+      <div class="guia-wrap-icon">💧</div>
+      <h3 data-es="Riego inteligente" data-en="Smart watering">Riego inteligente</h3>
+      <p data-es="Cuándo regar, cuánta agua, sistemas caseros de goteo. Ahorrá agua y tiempo." data-en="When to water, how much, homemade drip systems. Save water and time.">Cuándo regar, cuánta agua, sistemas caseros de goteo. Ahorrá agua y tiempo.</p>
+      <a href="#" class="guia-lnk" data-es="Leer artículo →" data-en="Read article →">Leer artículo →</a>
+    </div>
+    <div class="guia-card reveal reveal-d3">
+      <div class="guia-wrap-icon">🐛</div>
+      <h3 data-es="Plagas: prevención natural" data-en="Pests: natural prevention">Plagas: prevención natural</h3>
+      <p data-es="Identificá y tratá las plagas más comunes sin usar productos químicos." data-en="Identify and treat the most common pests without using chemicals.">Identificá y tratá las plagas más comunes sin usar productos químicos.</p>
+      <a href="#" class="guia-lnk" data-es="Leer artículo →" data-en="Read article →">Leer artículo →</a>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ─── TESTIMONIOS ─── -->
+<section class="testimonios" id="testimonios">
+<div class="container">
+  <span class="chip reveal" style="display:flex;justify-content:center" data-es="La comunidad habla" data-en="The community speaks">La comunidad habla</span>
+  <h2 class="sec-title reveal" style="text-align:center" data-es="Ya lo están <em>haciendo</em>" data-en="They're already <em>doing it</em>">Ya lo están <em>haciendo</em></h2>
+</div>
+<div class="test-marquee-wrap">
+  <div class="test-marquee" id="marquee">
+    <!-- 6 cards + duplicadas para loop -->
+    <div class="test-card"><div class="test-q">"</div><p data-es="Nunca creí que en mi balcón de 2 metros podría cosechar tomates. Este año hice tres cosechas y les regalo a los vecinos." data-en="I never thought I could harvest tomatoes on my 2-meter balcony. This year I had three harvests and give them to my neighbors.">Nunca creí que en mi balcón de 2 metros podría cosechar tomates. Este año hice tres cosechas y les regalo a los vecinos.</p><div class="test-by"><div class="test-av">ME</div><div><div class="test-name">María E.</div><div class="test-lugar">Merlo</div></div></div></div>
+    <div class="test-card"><div class="test-q">"</div><p data-es="Con mis hijos aprendemos juntos cada sábado. Ellos ahora comen verduras que antes rechazaban." data-en="My kids and I learn together every Saturday. They now eat vegetables they used to refuse.">Con mis hijos aprendemos juntos cada sábado. Ellos ahora comen verduras que antes rechazaban.</p><div class="test-by"><div class="test-av">RM</div><div><div class="test-name">Rodrigo M.</div><div class="test-lugar">Morón</div></div></div></div>
+    <div class="test-card"><div class="test-q">"</div><p data-es="Vine por las plantas y me quedé por la gente. Hoy somos una familia." data-en="I came for the plants and stayed for the people. Today we're a family.">Vine por las plantas y me quedé por la gente. Hoy somos una familia.</p><div class="test-by"><div class="test-av">CF</div><div><div class="test-name">Claudia F.</div><div class="test-lugar">Ituzaingó</div></div></div></div>
+    <div class="test-card"><div class="test-q">"</div><p data-es="En mi ventana tengo albahaca, cilantro y perejil frescos todo el año. Cambió mi manera de cocinar." data-en="I have fresh basil, cilantro and parsley at my window all year. It changed the way I cook.">En mi ventana tengo albahaca, cilantro y perejil frescos todo el año. Cambió mi manera de cocinar.</p><div class="test-by"><div class="test-av">LG</div><div><div class="test-name">Laura G.</div><div class="test-lugar">Haedo</div></div></div></div>
+    <div class="test-card"><div class="test-q">"</div><p data-es="El taller de compost me cambió la vida. Dejé de tirar basura orgánica y tengo el mejor abono." data-en="The compost workshop changed my life. I stopped throwing away organic waste and have the best fertilizer.">El taller de compost me cambió la vida. Dejé de tirar basura orgánica y tengo el mejor abono.</p><div class="test-by"><div class="test-av">JP</div><div><div class="test-name">Jorge P.</div><div class="test-lugar">Merlo Norte</div></div></div></div>
+    <div class="test-card"><div class="test-q">"</div><p data-es="Tengo 70 años y aprendí más en tres talleres que en toda mi vida sobre cómo cuidar la tierra." data-en="I'm 70 years old and learned more in three workshops than in my whole life about caring for the earth.">Tengo 70 años y aprendí más en tres talleres que en toda mi vida sobre cómo cuidar la tierra.</p><div class="test-by"><div class="test-av">AR</div><div><div class="test-name">Ana R.</div><div class="test-lugar">William Morris</div></div></div></div>
+    <!-- duplicado -->
+    <div class="test-card"><div class="test-q">"</div><p data-es="Nunca creí que en mi balcón de 2 metros podría cosechar tomates. Este año hice tres cosechas y les regalo a los vecinos." data-en="I never thought I could harvest tomatoes on my 2-meter balcony. This year I had three harvests and give them to my neighbors.">Nunca creí que en mi balcón de 2 metros podría cosechar tomates. Este año hice tres cosechas y les regalo a los vecinos.</p><div class="test-by"><div class="test-av">ME</div><div><div class="test-name">María E.</div><div class="test-lugar">Merlo</div></div></div></div>
+    <div class="test-card"><div class="test-q">"</div><p data-es="Con mis hijos aprendemos juntos cada sábado. Ellos ahora comen verduras que antes rechazaban." data-en="My kids and I learn together every Saturday. They now eat vegetables they used to refuse.">Con mis hijos aprendemos juntos cada sábado. Ellos ahora comen verduras que antes rechazaban.</p><div class="test-by"><div class="test-av">RM</div><div><div class="test-name">Rodrigo M.</div><div class="test-lugar">Morón</div></div></div></div>
+    <div class="test-card"><div class="test-q">"</div><p data-es="Vine por las plantas y me quedé por la gente. Hoy somos una familia." data-en="I came for the plants and stayed for the people. Today we're a family.">Vine por las plantas y me quedé por la gente. Hoy somos una familia.</p><div class="test-by"><div class="test-av">CF</div><div><div class="test-name">Claudia F.</div><div class="test-lugar">Ituzaingó</div></div></div></div>
+    <div class="test-card"><div class="test-q">"</div><p data-es="En mi ventana tengo albahaca, cilantro y perejil frescos todo el año. Cambió mi manera de cocinar." data-en="I have fresh basil, cilantro and parsley at my window all year. It changed the way I cook.">En mi ventana tengo albahaca, cilantro y perejil frescos todo el año. Cambió mi manera de cocinar.</p><div class="test-by"><div class="test-av">LG</div><div><div class="test-name">Laura G.</div><div class="test-lugar">Haedo</div></div></div></div>
+    <div class="test-card"><div class="test-q">"</div><p data-es="El taller de compost me cambió la vida. Dejé de tirar basura orgánica y tengo el mejor abono." data-en="The compost workshop changed my life. I stopped throwing away organic waste and have the best fertilizer.">El taller de compost me cambió la vida. Dejé de tirar basura orgánica y tengo el mejor abono.</p><div class="test-by"><div class="test-av">JP</div><div><div class="test-name">Jorge P.</div><div class="test-lugar">Merlo Norte</div></div></div></div>
+    <div class="test-card"><div class="test-q">"</div><p data-es="Tengo 70 años y aprendí más en tres talleres que en toda mi vida sobre cómo cuidar la tierra." data-en="I'm 70 years old and learned more in three workshops than in my whole life about caring for the earth.">Tengo 70 años y aprendí más en tres talleres que en toda mi vida sobre cómo cuidar la tierra.</p><div class="test-by"><div class="test-av">AR</div><div><div class="test-name">Ana R.</div><div class="test-lugar">William Morris</div></div></div></div>
+  </div>
+</div>
+</section>
+
+<!-- ─── CONTACTO ─── -->
+<section class="contacto" id="contacto">
+<div class="container">
+  <span class="chip reveal" data-es="Escribinos" data-en="Get in touch">Escribinos</span>
+  <h2 class="sec-title reveal" data-es="Sumate al <em>proyecto</em>" data-en="Join the <em>project</em>">Sumate al <em>proyecto</em></h2>
+  <p class="sec-sub reveal"
+    data-es="¿Querés participar, recibir info o simplemente saludar? Cada mensaje cuenta."
+    data-en="Want to participate, get info or just say hello? Every message counts.">
+    ¿Querés participar, recibir info o simplemente saludar? Cada mensaje cuenta.
+  </p>
+
+  <div class="contacto-grid">
+    <div class="contact-form-wrap reveal">
+      <div class="form-row">
+        <div class="form-field">
+          <label data-es="Nombre" data-en="Name">Nombre</label>
+          <input class="form-input" type="text" id="c-nombre" placeholder="Tu nombre" data-ph-es="Tu nombre" data-ph-en="Your name"/>
+        </div>
+        <div class="form-field">
+          <label data-es="Apellido" data-en="Last name">Apellido</label>
+          <input class="form-input" type="text" id="c-apellido" placeholder="Tu apellido" data-ph-es="Tu apellido" data-ph-en="Your last name"/>
+        </div>
+      </div>
+      <div class="form-field">
+        <label data-es="Email" data-en="Email">Email</label>
+        <input class="form-input" type="email" id="c-email" placeholder="tu@email.com"/>
+      </div>
+      <div class="form-field">
+        <label data-es="WhatsApp (opcional)" data-en="WhatsApp (optional)">WhatsApp (opcional)</label>
+        <input class="form-input" type="tel" id="c-tel" placeholder="+54 11 XXXX-XXXX" data-ph-es="+54 11 XXXX-XXXX" data-ph-en="+1 (555) 000-0000"/>
+      </div>
+      <div class="form-field">
+        <label data-es="Me interesa" data-en="I'm interested in">Me interesa</label>
+        <select class="form-input" id="c-interes">
+          <option data-es="Elegí una opción…" data-en="Choose an option…">Elegí una opción…</option>
+          <option data-es="Asistir a talleres" data-en="Attending workshops">Asistir a talleres</option>
+          <option data-es="Recibir guías y materiales" data-en="Receiving guides and materials">Recibir guías y materiales</option>
+          <option data-es="Armar una huerta en casa" data-en="Setting up a home garden">Armar una huerta en casa</option>
+          <option data-es="Colaborar como voluntario/a" data-en="Volunteering">Colaborar como voluntario/a</option>
+          <option data-es="Otro" data-en="Other">Otro</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label data-es="Mensaje" data-en="Message">Mensaje</label>
+        <textarea class="form-input" id="c-msg" placeholder="Contanos algo sobre vos o tu espacio..." data-ph-es="Contanos algo sobre vos o tu espacio..." data-ph-en="Tell us about yourself or your space..."></textarea>
+      </div>
+      <button class="btn-tierra" style="width:100%;justify-content:center" onclick="enviar()">
+        <span data-es="Enviar mensaje →" data-en="Send message →">Enviar mensaje →</span>
+      </button>
+      <div class="form-ok" id="c-ok"
+        data-es="🌱 ¡Gracias! Te contactamos dentro de las próximas 48 hs."
+        data-en="🌱 Thank you! We'll contact you within the next 48 hours.">
+        🌱 ¡Gracias! Te contactamos dentro de las próximas 48 hs.
+      </div>
+    </div>
+
+    <div class="qr-box reveal reveal-d1">
+      <h3 data-es="Compartí esta página" data-en="Share this page">Compartí esta página</h3>
+      <p class="qr-sub"
+        data-es="Escaneá el QR o enviá el link a alguien que quiera empezar a plantar."
+        data-en="Scan the QR or send the link to someone who wants to start planting.">
+        Escaneá el QR o enviá el link a alguien que quiera empezar a plantar.
+      </p>
+      <div id="qrcode"></div>
+      <div class="qr-url" id="qrUrl">www.sembrandoconciencia.com.ar</div>
+      <div class="contact-items">
+        <div class="c-row"><span class="c-icon">📱</span><span>Instagram: <strong>@sembrandoconciencia</strong></span></div>
+        <div class="c-row"><span class="c-icon">💬</span><span>WhatsApp: <strong>+54 11 XXXX-XXXX</strong></span></div>
+        <div class="c-row"><span class="c-icon">📧</span><span><strong>hola@sembrandoconciencia.com.ar</strong></span></div>
+        <div class="c-row"><span class="c-icon">📍</span><span>Merlo, Buenos Aires, Argentina</span></div>
+        <div class="c-row"><span class="c-icon">🕐</span><span data-es="Sábados 10 a 13 hs" data-en="Saturdays 10am – 1pm">Sábados 10 a 13 hs</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ─── MAPA ─── -->
+<div class="mapa-wrap" id="ubicacion">
+  <div class="mapa-info">
+    <span class="chip" data-es="Dónde estamos" data-en="Find us">Dónde estamos</span>
+    <h2 data-es="Encontranos en Merlo" data-en="Find us in Merlo">Encontranos en Merlo</h2>
+    <p data-es="Nos reunimos cada sábado de 10 a 13 hs. El acceso es libre y gratuito. Traé guantes si tenés." data-en="We meet every Saturday from 10am to 1pm. Access is free and open. Bring gloves if you have them.">Nos reunimos cada sábado de 10 a 13 hs. El acceso es libre y gratuito. Traé guantes si tenés.</p>
+    <a href="https://maps.google.com/?q=Merlo,Buenos+Aires,Argentina" target="_blank" class="btn-ghost" style="display:inline-flex;margin-top:0.5rem;border-color:rgba(255,255,255,0.3);color:rgba(250,246,240,0.8)">
+      <span data-es="Abrir en Google Maps →" data-en="Open in Google Maps →">Abrir en Google Maps →</span>
+    </a>
+  </div>
+  <div class="mapa-embed">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26311.67!2d-58.7279!3d-34.6697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcbe0cca8d1f2f%3A0x3be7c0673f5a1f5e!2sMerlo%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1680000000000" width="100%" height="100%" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="mapa-overlay"></div>
+  </div>
+</div>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+<div class="footer-grid">
+  <div class="footer-brand">
+    <div class="foot-logo">🌱 Sembrando Conciencia</div>
+    <p data-es="Huerta solidaria que enseña que cualquier rincón puede convertirse en una fuente de alimento fresco y comunidad real." data-en="A community garden teaching that any corner can become a source of fresh food and real community.">Huerta solidaria que enseña que cualquier rincón puede convertirse en una fuente de alimento fresco y comunidad real.</p>
+  </div>
+  <div class="footer-col">
+    <h5 data-es="Navegá" data-en="Navigate">Navegá</h5>
+    <ul>
+      <li><a href="#nosotros" data-es="Nosotros" data-en="About Us">Nosotros</a></li>
+      <li><a href="#por-que" data-es="¿Por qué plantar?" data-en="Why Plant?">¿Por qué plantar?</a></li>
+      <li><a href="#espacios" data-es="Espacios" data-en="Spaces">Espacios</a></li>
+      <li><a href="#video" data-es="Video" data-en="Video">Video</a></li>
+      <li><a href="#talleres" data-es="Talleres" data-en="Workshops">Talleres</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h5 data-es="Recursos" data-en="Resources">Recursos</h5>
+    <ul>
+      <li><a href="#guias" data-es="Guías PDF" data-en="PDF Guides">Guías PDF</a></li>
+      <li><a href="#guias" data-es="Artículos" data-en="Articles">Artículos</a></li>
+      <li><a href="#talleres" data-es="Calendario" data-en="Calendar">Calendario</a></li>
+      <li><a href="#contacto" data-es="Voluntariado" data-en="Volunteering">Voluntariado</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h5 data-es="Contacto" data-en="Contact">Contacto</h5>
+    <ul>
+      <li><a href="#">Instagram</a></li>
+      <li><a href="#">WhatsApp</a></li>
+      <li><a href="#contacto" data-es="Email" data-en="Email">Email</a></li>
+      <li><a href="#ubicacion" data-es="Ubicación" data-en="Location">Ubicación</a></li>
+    </ul>
+  </div>
+</div>
+<div class="footer-bottom">
+  <p>© 2025 Sembrando Conciencia · Merlo, Buenos Aires</p>
+  <p class="made" data-es="Hecho con tierra, semillas y amor 🌿" data-en="Made with soil, seeds and love 🌿">Hecho con tierra, semillas y amor 🌿</p>
+</div>
+</footer>
+
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Volver arriba">↑</button>
+
+<script>
+// ════════════════════════════════════════
+// SISTEMA BILINGÜE
+// ════════════════════════════════════════
+var lang = 'es';
+
+function setLang(l) {
+  lang = l;
+  document.getElementById('btn-es').classList.toggle('active', l === 'es');
+  document.getElementById('btn-en').classList.toggle('active', l === 'en');
+  document.documentElement.lang = l;
+
+  // Actualizar todos los elementos con data-es / data-en
+  document.querySelectorAll('[data-es]').forEach(function(el) {
+    var txt = el.getAttribute('data-' + l);
+    if (!txt) return;
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+      el.placeholder = txt;
+    } else if (el.tagName === 'OPTION') {
+      el.textContent = txt;
+    } else {
+      el.innerHTML = txt;
+    }
+  });
+
+  // Placeholders con data-ph-es / data-ph-en
+  document.querySelectorAll('[data-ph-' + l + ']').forEach(function(el) {
+    el.placeholder = el.getAttribute('data-ph-' + l);
+  });
+
+  // Mensaje de OK del formulario
+  ['t-ok','c-ok'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = el.getAttribute('data-' + l);
+  });
+}
+
+// ════════════════════════════════════════
+// QR CODE
+// ════════════════════════════════════════
+// ─────────────────────────────────────────────────────
+// CAMBIÁ esta URL por la URL real cuando publiques
+// ─────────────────────────────────────────────────────
+var siteUrl = 'https://www.sembrandoconciencia.com.ar';
+document.getElementById('qrUrl').textContent = siteUrl;
+new QRCode(document.getElementById('qrcode'), {
+  text: siteUrl,
+  width: 180, height: 180,
+  colorDark: '#2a5535',
+  colorLight: '#ffffff',
+  correctLevel: QRCode.CorrectLevel.H
+});
+
+// ════════════════════════════════════════
+// NAVBAR SCROLL
+// ════════════════════════════════════════
+var navbar = document.getElementById('navbar');
+window.addEventListener('scroll', function() {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+  document.getElementById('backTop').classList.toggle('show', window.scrollY > 500);
+});
+
+// ════════════════════════════════════════
+// HAMBURGER / DRAWER
+// ════════════════════════════════════════
+var ham = document.getElementById('hamburger');
+var drawer = document.getElementById('drawer');
+var overlay = document.getElementById('overlay');
+var drawerOpen = false;
+
+ham.addEventListener('click', function() {
+  drawerOpen = !drawerOpen;
+  drawer.classList.toggle('open', drawerOpen);
+  overlay.classList.toggle('show', drawerOpen);
+  ham.classList.toggle('open', drawerOpen);
+  document.body.style.overflow = drawerOpen ? 'hidden' : '';
+});
+
+function closeDrawer() {
+  drawerOpen = false;
+  drawer.classList.remove('open');
+  overlay.classList.remove('show');
+  ham.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ════════════════════════════════════════
+// SCROLL REVEAL
+// ════════════════════════════════════════
+var revObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) { e.target.classList.add('visible'); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(function(el) { revObs.observe(el); });
+
+// ════════════════════════════════════════
+// FORMULARIOS
+// ════════════════════════════════════════
+function inscribir() {
+  var n = document.getElementById('t-nombre').value.trim();
+  var w = document.getElementById('t-wp').value.trim();
+  if (!n || !w) {
+    alert(lang === 'es' ? 'Completá tu nombre y WhatsApp.' : 'Please fill in your name and WhatsApp.');
+    return;
+  }
+  var ok = document.getElementById('t-ok');
+  ok.style.display = 'block';
+  ok.textContent = ok.getAttribute('data-' + lang);
+}
+
+function enviar() {
+  var n = document.getElementById('c-nombre').value.trim();
+  var e = document.getElementById('c-email').value.trim();
+  if (!n || !e) {
+    alert(lang === 'es' ? 'Completá al menos el nombre y el email.' : 'Please fill in at least your name and email.');
+    return;
+  }
+  var ok = document.getElementById('c-ok');
+  ok.style.display = 'block';
+  ok.textContent = ok.getAttribute('data-' + lang);
+}
+</script>
+</body>
+</html>
